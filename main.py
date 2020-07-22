@@ -3,9 +3,9 @@
 import math
 from PIL import Image
 
-def img_convert(path, ref, width, height):
+def img_convert(ref, width, height):
     # define shades and range
-    shades = [ '.', ':', ';', 'i', 'r', 's', 'X', 'A', '2', '5', '3', 'h', 'M', 'H', 'G', 'S', '#', '9', 'B', '&', '@']
+    shades = [ '.', ':', ';', 'i', 'r']
     s_range = 255 / len(shades)
 
     # convert pixels in shades
@@ -37,14 +37,14 @@ def img_convert(path, ref, width, height):
 
 def write_file(text):
     # open new file in append mode
-    f = open("cnv_img.txt", "w")
+    f = open('cnv_img.txt', 'w')
 
     # write and close file
     f.write(text)
     f.close()
 
 def main():
-    # get image real path of user
+    # get img real path of user
     img_path = input('(≧∀≦)ゞ - Tell to me what\'s the path to image: ')
     img = Image.open(img_path)
 
@@ -52,7 +52,7 @@ def main():
     img_ref = img.resize((100, 100))
 
     # resize image and override the file
-    img_convert(img_path, img_ref, img_ref.width, img_ref.height)
-    print('(∩^o^)⊃━☆゜.* - "It\'s over, the result are in cnv_img.txt"')
+    img_convert(img_ref, img_ref.width, img_ref.height)
+    print('(∩^o^)⊃━☆゜.* - It\'s over, the result are in cnv_img.txt')
 
 main()
