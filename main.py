@@ -5,7 +5,7 @@ from PIL import Image
 
 def img_convert(ref, width, height):
     # define shades and range
-    shades = [ '.', ':', ';', 'i', 'r']
+    shades = [ '@', '#', ':', '!', '?']
     s_range = 255 / len(shades)
 
     # convert pixels in shades
@@ -37,7 +37,7 @@ def img_convert(ref, width, height):
 
 def write_file(text):
     # open new file in append mode
-    f = open('cnv_img.txt', 'w')
+    f = open('assets/cnv_img.txt', 'w')
 
     # write and close file
     f.write(text)
