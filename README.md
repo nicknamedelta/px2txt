@@ -10,7 +10,5 @@ Installation: [Pillow](https://pillow.readthedocs.io/en/stable/installation.html
 
 On project's root folder run `python3 main.py`
 
-## Notes:
-
 - Get file path on Linux: run `realpath <file>.<extension>` in file folder
   - [How to get full path of a file ?](https://stackoverflow.com/a/45690418)
