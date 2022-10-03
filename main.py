@@ -2,6 +2,7 @@
 # pylint: disable=missing-docstring
 import math
 from PIL import Image
+import os
 
 def img_convert(ref, width, height):
     # define shades and range
@@ -37,17 +38,24 @@ def img_convert(ref, width, height):
 
 def write_file(text):
     # open new file in append mode
+    if not does_folder_exist():
+        os.mkdir('assets')
     f = open('assets/cnv_img.txt', 'w')
-
     # write and close file
     f.write(text)
     f.close()
 
+def does_folder_exist():
+    return os.path.isdir('assets')
+
 def main():
     # get img real path of user
     img_path = input('(≧∀≦)ゞ - Tell to me what\'s the path to image: ')
-    img = Image.open(img_path)
-
+    try:
+        img = Image.open(img_path)
+    except FileNotFoundError:
+        print('(-_-) - Image not found. I\'m quitting...')
+        exit()
     # resize img to 100px x 100px
     img_ref = img.resize((100, 100))
 
